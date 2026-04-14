@@ -75,23 +75,25 @@
 
   <script>
     const entriesData = [
-      {
-        date: "14.04.2026",
-        text: "Dodano system logowania do panelu"
-      },
-      {
-        date: "13.04.2026",
-        text: "Poprawiono stabilność aplikacji"
-      },
-      {
-        date: "08.04.2026",
-        text: "- dodanie do głównego zaworu wody styczników do odczytu stanu zaworu
-- wystawienie do aplikacji sterowania głównym zaworem wody i jego stanu 
+  {
+    date: "14.04.2026",
+    text: "Dodano system logowania do panelu"
+  },
+  {
+    date: "13.04.2026",
+    text: "Poprawiono stabilność aplikacji"
+  },
+  {
+    date: "08.04.2026",
+    text: `
+- dodanie do głównego zaworu wody styczników do odczytu stanu zaworu
+- wystawienie do aplikacji sterowania głównym zaworem wody i jego stanu
 - zamykanie głównego zaworu wody gdy nastąpi wykrycie zalania obiektu
-- powiadomienie wysyłane do klienta gdy główny zawór wody jest zamknięty 
-- ostrzeganie napadowe lamp zewnętrznych na słupach "
-      }
-    ];
+- powiadomienie wysyłane do klienta gdy główny zawór wody jest zamknięty
+- ostrzeganie napadowe lamp zewnętrznych na słupach
+    `.trim()
+  }
+];
 
     function renderEntries() {
       const container = document.getElementById("entries");
