@@ -2,80 +2,115 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Dziennik programowania</title>
+  <title>Dziennik zmian</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f4f4f4;
       margin: 0;
-      padding: 20px;
+      padding: 0;
     }
 
+    /* HEADER TYLKO Z LOGO */
+    .header {
+      text-align: center;
+      padding: 25px 10px;
+      border-bottom: 2px solid #e0e0e0;
+      background: transparent;
+    }
+
+    .header img {
+      height: 70px;
+    }
+
+    /* KONTENER */
     .container {
-      max-width: 700px;
-      margin: auto;
+      max-width: 800px;
+      margin: 20px auto;
       background: white;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    h1 {
+    h2 {
+      margin-top: 0;
+      color: #0d1b2a;
       text-align: center;
     }
 
+    /* WPISY */
     .entry {
       background: #fafafa;
-      margin-top: 15px;
-      padding: 10px;
-      border-left: 4px solid #0077cc;
+      margin-top: 12px;
+      padding: 12px;
+      border-left: 5px solid #0077cc;
+      border-radius: 5px;
     }
 
     .date {
       font-weight: bold;
       margin-bottom: 5px;
+      color: #333;
     }
   </style>
 </head>
+
 <body>
 
-<div class="container">
-  <h1>📘 Dziennik zmian</h1>
+  <!-- LOGO -->
+  <div class="header">
+    <img src="logo_aksys.png" alt="Aksys logo">
+  </div>
 
-  <div id="entries"></div>
-</div>
+  <!-- TREŚĆ -->
+  <div class="container">
 
-<script>
-  const entriesData = [
-    {
-      date: "14.04.2026",
-      text: "Dodano funkcję logowania"
-    },
-    {
-      date: "13.04.2026",
-      text: "Poprawiono błędy w formularzu"
+    <h2>📘 Lista zmian</h2>
+
+    <div id="entries"></div>
+
+  </div>
+
+  <script>
+    const entriesData = [
+      {
+        date: "14.04.2026",
+        text: "Dodano system logowania do panelu"
+      },
+      {
+        date: "13.04.2026",
+        text: "Poprawiono stabilność aplikacji"
+      },
+      {
+        date: "08.04.2026",
+        text: "- dodanie do głównego zaworu wody styczników do odczytu stanu zaworu
+- wystawienie do aplikacji sterowania głównym zaworem wody i jego stanu 
+- zamykanie głównego zaworu wody gdy nastąpi wykrycie zalania obiektu
+- powiadomienie wysyłane do klienta gdy główny zawór wody jest zamknięty 
+- ostrzeganie napadowe lamp zewnętrznych na słupach "
+      }
+    ];
+
+    function renderEntries() {
+      const container = document.getElementById("entries");
+
+      entriesData.forEach(entry => {
+        const div = document.createElement("div");
+        div.className = "entry";
+
+        div.innerHTML = `
+          <div class="date">${entry.date}</div>
+          <div>${entry.text}</div>
+        `;
+
+        container.appendChild(div);
+      });
     }
-  ];
 
-  function renderEntries() {
-    const container = document.getElementById("entries");
-
-    entriesData.forEach(entry => {
-      const div = document.createElement("div");
-      div.className = "entry";
-
-      div.innerHTML = `
-        <div class="date">${entry.date}</div>
-        <div>${entry.text}</div>
-      `;
-
-      container.appendChild(div);
-    });
-  }
-
-  renderEntries();
-</script>
+    renderEntries();
+  </script>
 
 </body>
 </html>
-
